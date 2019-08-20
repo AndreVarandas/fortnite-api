@@ -31,7 +31,7 @@ use Varandas\FortniteApi\FortniteClient;
 $api = new FortniteClient();
 $api->setKey("your api key");
 
-// Get items currently available in the store
+// Get the daily store
 $data = $api->items->store();
 
 var_dump($data);
@@ -73,18 +73,6 @@ $api = new FortniteClient();
 $api->user->uid = 'user_id';
 
 $data = $api->user->stats('console', 'window');
-
-var_dump($data);
-```
-
-3. Get the daily store
-```php
-<?php
-use Varandas\FortniteApi\FortniteClient;
-
-$api = new FortniteClient();
-
-$data = $api->items->store();
 
 var_dump($data);
 ```
