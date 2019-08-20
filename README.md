@@ -53,11 +53,11 @@ https://fortniteapi.com/
 1. Get an user id
 ```php
 <?php
-require_once 'fortnite-api/Autoloader.php';
+use Varandas\FortniteApi\FortniteClient;
 
-$api = new FortniteClient;
+$api = new FortniteClient();
 
-$data = $api->user->id('username');
+$data = $api->user->id('Ninja');
 
 echo $data->uid;
 echo $data->username;
@@ -66,9 +66,9 @@ echo $data->username;
 2. Get user stats **V2**
 ```php
 <?php
-require_once 'fortnite-api/Autoloader.php';
+use Varandas\FortniteApi\FortniteClient;
 
-$api = new FortniteClient;
+$api = new FortniteClient();
 
 $api->user->uid = 'user_id';
 
@@ -80,27 +80,13 @@ var_dump($data);
 3. Get the daily store
 ```php
 <?php
-require_once 'fortnite-api/Autoloader.php';
+use Varandas\FortniteApi\FortniteClient;
 
-$api = new FortniteClient;
+$api = new FortniteClient();
 
 $data = $api->items->store();
 
 var_dump($data);
-```
-
-4. Fortnite server status
-```php
-<?php
-require_once 'fortnite-api/Autoloader.php';
-
-$api = new FortniteClient;
-
-$data = $api->status->fetch();
-
-echo $data->status;
-echo $data->message;
-echo $data->version;
 ```
 
 ## Disclaimer

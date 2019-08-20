@@ -36,7 +36,6 @@ class FortniteClient
     public $news;
     public $patchnotes;
     public $pve;
-    public $status;
     public $user;
     public $weapons;
 
@@ -52,7 +51,6 @@ class FortniteClient
         $this->news = new Fortnite_News($this);
         $this->patchnotes = new Fortnite_PatchNotes($this);
         $this->pve = new Fortnite_PVE($this);
-        $this->status = new Fortnite_Status($this);
         $this->user = new Fortnite_User($this);
         $this->weapons = new Fortnite_Weapons($this);
     }
