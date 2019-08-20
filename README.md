@@ -1,8 +1,8 @@
 # FortniteAPI.com
 
 This is a wrapper for the https://fortniteapi.com/ API.
-
-![logo](./extra/wallpaper.png)
+   
+<img src="./extra/wallpaper.png" style="max-width: 450px" alt="logo">
 
 ## About
 
@@ -12,13 +12,30 @@ endpoints.
 
 You can see the available endpoints here [https://docs.fortniteapi.com/?version=latest](https://docs.fortniteapi.com/?version=latest)
 
-I will be updating the api as the new endpoints come out.
-
 ## Requirements
 
 1. Authorization key. You can get one for free at [https://console.fortniteapi.com/](https://console.fortniteapi.com/).
 
-That's it.
+## Install
+
+Install with composer using: `composer require varandas/fortnite-api`
+
+## Usage
+
+```php
+<?php
+
+use Varandas\FortniteApi\FortniteClient;
+
+// Get an instance of FortniteClient
+$api = new FortniteClient();
+$api->setKey("your api key");
+
+// Get items currently available in the store
+$data = $api->items->store();
+
+var_dump($data);
+```
 
 ## Original readme
 
