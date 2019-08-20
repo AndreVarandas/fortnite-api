@@ -2,7 +2,7 @@
 
 This is a wrapper for the https://fortniteapi.com/ API.
    
-<img src="./extra/wallpaper.png" style="width: 450px" alt="logo">
+<img src="./extra/wallpaper.png" width="450px" alt="logo">
 
 ## About
 
