@@ -1,0 +1,24 @@
+{
+    "name": "varandas/fortnite-api",
+    "description": "A wrapper for the fortniteapi.com",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "André Varandas",
+            "email": "andre.m.varandas@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Varandas\\FortniteApi\\": "src/"
+        }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.4.2"
+    },
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*"
+    }
+}
