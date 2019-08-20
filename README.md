@@ -14,16 +14,20 @@ You can see the available endpoints here [https://docs.fortniteapi.com/?version=
 
 ## Requirements
 
-1. Authorization key. You can get one for free at [https://console.fortniteapi.com/](https://console.fortniteapi.com/).
+1. Composer [https://getcomposer.org/](https://getcomposer.org/)
+2. Authorization key. You can get one for free at [https://console.fortniteapi.com/](https://console.fortniteapi.com/).
 
 ## Install
 
-Install with composer using: `composer require varandas/fortnite-api`
+Install with composer using: `composer require varandas/fortnite-api:v0.1.0-beta && composer dump-autoload --optimize`
 
 ## Usage
 
 ```php
 <?php
+
+// Require autoload
+require __DIR__ . '/vendor/autoload.php';
 
 use Varandas\FortniteApi\FortniteClient;
 
