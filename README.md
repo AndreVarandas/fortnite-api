@@ -23,7 +23,7 @@ You can see the available endpoints here [https://docs.fortniteapi.com/?version=
 
 ## Install
 
-Install with composer using: `composer require varandas/fortnite-api:v0.1.1-beta && composer dump-autoload --optimize`
+Install with composer using: `composer require varandas/fortnite-api && composer dump-autoload --optimize`
 
 ## Usage
 
@@ -31,7 +31,7 @@ Install with composer using: `composer require varandas/fortnite-api:v0.1.1-beta
 <?php
 
 // Require autoload
-require __DIR__ . '/vendor/autoload.php';
+require 'vendor/autoload.php';
 
 use Varandas\FortniteApi\FortniteClient;
 
