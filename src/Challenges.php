@@ -43,18 +43,17 @@ class Fortnite_Challenges
 
     /**
      * Get challenges for season.
+     * Can receive a season like: "season 4"
+     * If season is not specified it defaults to current.
      *
-     * @param string $season   Season to look for
-     * @param string $language Content language
+     * @param string $season Season to look for
      *
      * @return mixed|string
      */
-    public function get($season = 'current', $language = 'en')
+    public function get($season = 'current')
     {
         $return = json_decode(
-            $this->_Client->httpCall(
-                'challenges/get?', ['season' => $season, 'language' => $language]
-            )
+            $this->_Client->httpCall('challenges/get?', ['season' => $season])
         );
 
         if (isset($return->error)) {
