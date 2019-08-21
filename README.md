@@ -70,7 +70,7 @@ var_dump($data);
 $data = $api->challenges->get("season 3");
 
 // Get current season challenges
-$data = $api->challenges->get(__);
+$data = $api->challenges->get();
 
 var_dump($data);
 
