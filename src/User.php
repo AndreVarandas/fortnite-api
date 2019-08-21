@@ -72,76 +72,24 @@ class Fortnite_User
     }
 
     /**
-     * Get user devices - returns an array.
-     *
-     * @param string $username - The username to search for.
-     *
-     * @return string|array
-     */
-    public function getDevices($username = '')
-    {
-        if (!empty($username)) {
-            $return = json_decode(
-                $this->_Client->httpCall(
-                    'users/id?', ['username' => urlencode($username)]
-                )
-            );
-
-            if (isset($return->error)) {
-                return $return->errorMessage;
-            } else {
-                return $return->platforms;
-            }
-        }
-
-        return 'Invalid username.';
-    }
-
-    /**
-     * Get username out of an user id (can be multiple in an array)
-     *
-     * @param null $ids - The user id to search for.
-     *
-     * @return mixed|string
-     */
-    public function getUsernameFromId($ids = null)
-    {
-        if (!empty($ids) && is_array($ids)) {
-            $return = json_decode(
-                $this->_Client->httpCall(
-                    'users/username%20out%20of%20id', ['ids' => $ids]
-                )
-            );
-
-            if (isset($return->error)) {
-                return $return->errorMessage;
-            } else {
-                return $return;
-            }
-        }
-
-        return 'Usernames are invalid.';
-    }
-
-    /**
-     * Get the user stats.
+     * Get the user old v1 user stats.
      *
      * @param string $platform - The user platform.
-     * @param string $window   - Time frame
      * 
      * @return mixed|string
      */
-    public function stats($platform = 'pc', $window = 'alltime')
+    public function v1Stats($platform = 'pc')
     {
         (empty($user_id) && !empty($this->uid)) ? $user_id = $this->uid: '';
-        (!in_array($window, $this->_windows)) ? $window = 'alltime' : '';
 
         if (!empty($user_id) && !empty($platform)) {
             $return = json_decode(
                 $this->_Client->httpCall(
-                    'users/public/br_stats_v2',
-                    ['user_id' => $user_id, 'platform'
-                        => $platform, 'window' => $window]
+                    'users/public/br_stats?',
+                    [
+                        'user_id' => $user_id,
+                        'platform' => $platform
+                    ]
                 )
             );
 
@@ -156,29 +104,18 @@ class Fortnite_User
     }
 
     /**
-     * Match tracking - We can only show cached matches that are cached
-     * by using stats().
-     * The first time asking for user matches can take a while because
-     * we are calculating all matches.
+     * Gets v2 stats for the current user.
      *
-     * @param string $platform - The player platform.
-     * @param string $window   - Time frame
-     * @param int    $rows     - Number of rows
-     * 
      * @return mixed|string
      */
-    public function matches($platform = 'pc', $window = 'alltime', $rows = 15)
+    public function stats()
     {
         (empty($user_id) && !empty($this->uid)) ? $user_id = $this->uid: '';
-        (!in_array($window, $this->_windows)) ? $window = 'alltime' : '';
-        (!is_numeric($rows)) ? $rows = 15 : '';
 
-        if (!empty($user_id) && !empty($platform) && !empty($rows)) {
+        if (!empty($user_id)) {
             $return = json_decode(
                 $this->_Client->httpCall(
-                    'users/public/matches',
-                    ['user_id' => $user_id, 'platform'
-                        => $platform, 'window' => $window, 'rows' => $rows]
+                    'users/public/br_stats_v2?', ['user_id' => $user_id]
                 )
             );
 

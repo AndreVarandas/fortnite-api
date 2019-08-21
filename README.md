@@ -74,6 +74,17 @@ $data = $api->challenges->get(__);
 
 var_dump($data);
 
+/** USERS **/
+
+// First find a user:
+$data = $api->user->id('ninja');
+
+// After that we can query for user stats
+$stats = $api->user->stats();
+
+// If you want to query for old v1 stats:
+$stats = $api->user->v1Stats();
+
 ```
 
 ## Disclaimer
