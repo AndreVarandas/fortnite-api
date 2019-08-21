@@ -63,6 +63,17 @@ $data = $api->items->data('8403b27-7c9f125-ef5487b-552aeab');
 $data = $api->items->search('item name');
 
 var_dump($data);
+
+/** CHALLENGES **/
+
+// Get season 3 challenges
+$data = $api->challenges->get("season 3");
+
+// Get current season challenges
+$data = $api->challenges->get(__);
+
+var_dump($data);
+
 ```
 
 ## Disclaimer
