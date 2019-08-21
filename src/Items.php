@@ -136,12 +136,12 @@ class Fortnite_Items
     public function data($id)
     {
         if (empty($id)) {
-            return 'Invalid username.';
+            return 'Invalid item id.';
         }
 
         $return = json_decode(
             $this->_Client->httpCall(
-                'item/get?', ['itemid' => urlencode($id)]
+                'item/get?', ['id' => urlencode($id)]
             )
         );
 

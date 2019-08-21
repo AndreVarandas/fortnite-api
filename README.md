@@ -1,7 +1,11 @@
 # FortniteAPI.com
 
 This is a wrapper for the https://fortniteapi.com/ API.
-   
+
+Fortnite API (get player stats **WITH STATS V2**, leaderboards and more)
+
+You can get user wins, kills, the latest news, fortnite server status and many more with this API.
+
 <img src="./extra/wallpaper.png" width="450px" alt="logo">
 
 ## About
@@ -35,48 +39,28 @@ use Varandas\FortniteApi\FortniteClient;
 $api = new FortniteClient();
 $api->setKey("your api key");
 
+/** ITEMS API **/
+
 // Get the daily store
 $data = $api->items->store();
 
-var_dump($data);
-```
+// Get upcoming items
+$data = $api->items->upcoming();
 
-## Original readme
+// List items
+$data = $api->items->list();
 
-Fortnite API (get player stats **WITH STATS V2**, leaderboards and more)
+// Get a random item
+$data = $api->items->random();
 
-You can get user wins, kills, the latest news, fortnite server status and many more with this API.
+// Get a popular item
+$data = $api->items->popular();
 
-Have fun!
+// Get detailed data for an item
+$data = $api->items->data('8403b27-7c9f125-ef5487b-552aeab');
 
-Sam
-https://fortniteapi.com/
-
-# Examples
-
-1. Get an user id
-```php
-<?php
-use Varandas\FortniteApi\FortniteClient;
-
-$api = new FortniteClient();
-
-$data = $api->user->id('Ninja');
-
-echo $data->uid;
-echo $data->username;
-```
-
-2. Get user stats **V2**
-```php
-<?php
-use Varandas\FortniteApi\FortniteClient;
-
-$api = new FortniteClient();
-
-$api->user->uid = 'user_id';
-
-$data = $api->user->stats('console', 'window');
+// Search for an item
+$data = $api->items->search('item name');
 
 var_dump($data);
 ```
