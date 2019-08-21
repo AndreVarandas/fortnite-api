@@ -95,6 +95,64 @@ class Fortnite_Items
     }
 
     /**
+     * Gets a random set of items.
+     *
+     * @return mixed
+     */
+    public function random()
+    {
+        $return = json_decode($this->_Client->httpCall('items/random'));
+
+        if (isset($return->error)) {
+            return $return->errorMessage;
+        } else {
+            return $return;
+        }
+    }
+
+    /**
+     * Get the most popular items.
+     *
+     * @return mixed
+     */
+    public function popular()
+    {
+        $return = json_decode($this->_Client->httpCall('items/popular'));
+
+        if (isset($return->error)) {
+            return $return->errorMessage;
+        } else {
+            return $return;
+        }
+    }
+
+    /**
+     * Get data for an item id.
+     *
+     * @param string $id The item id to search for
+     *
+     * @return mixed|string
+     */
+    public function data($id)
+    {
+        if (empty($id)) {
+            return 'Invalid username.';
+        }
+
+        $return = json_decode(
+            $this->_Client->httpCall(
+                'item/get?', ['itemid' => urlencode($id)]
+            )
+        );
+
+        if (isset($return->error)) {
+            return $return->errorMessage;
+        } else {
+            return $return;
+        }
+    }
+
+    /**
      * Search for Fortnite BR items.
      *
      * Note: This is not connected with your Authorization key.
@@ -122,5 +180,3 @@ class Fortnite_Items
         }
     }
 }
-
-?>
