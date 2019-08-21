@@ -85,6 +85,11 @@ $stats = $api->user->stats();
 // If you want to query for old v1 stats:
 $stats = $api->user->v1Stats();
 
+/** WEAPONS **/
+
+// List all current weapons:
+$data = $api->weapons->get();
+
 ```
 
 ## Disclaimer
