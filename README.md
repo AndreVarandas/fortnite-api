@@ -1,3 +1,10 @@
+# Deprecated
+
+Unfortunately the team behind fortniteapi.com has moved into another project, making this wrapper obsolete.
+
+But a there is a **new api available** at [https://fortnite-api.com/](https://fortnite-api.com/) and there's also a PHP wrapper for it at [https://github.com/Fortnite-API/php-wrapper](https://github.com/Fortnite-API/php-wrapper)
+
+
 # FortniteAPI.com
 
 This is a wrapper for the https://fortniteapi.com/ API.
